@@ -224,14 +224,12 @@ async def ignore_command(event):
 async def ignore_bots_command(event):
     config['ignore_bots'] = True
     save_config(config)
-    print(f"ignore_bots изменен на: {config['ignore_bots']}")  # Добавляем логирование
     await event.reply("Боты теперь игнорируются.")
 
 @client.on(events.NewMessage(pattern='/unignore_bots'))
 async def unignore_bots_command(event):
     config['ignore_bots'] = False
     save_config(config)
-    print(f"ignore_bots изменен на: {config['ignore_bots']}")  # Логирование изменения
     await event.reply("Боты больше не игнорируются.")
 
 @client.on(events.NewMessage(pattern='/ignore_users'))
