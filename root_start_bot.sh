@@ -38,3 +38,5 @@ systemctl enable telegram-start.service
 
 # Запуск сервиса немедленно (по желанию)
 systemctl start telegram-start.service
+
+screen -r telegram_session
