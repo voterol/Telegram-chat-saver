@@ -19,7 +19,7 @@ cd Telegram-chat-saver && \
 chmod +x setup.sh root_start_bot.sh start.sh setup.sh && \
 ./setup.sh
 ```
-## ИЛИ
+## ИЛИ (для добавления в автозагрузку)
 
 ```bash
 git clone https://github.com/voterol/Telegram-chat-saver && \
