@@ -18,8 +18,17 @@ git clone https://github.com/voterol/Telegram-chat-saver && \
 cd Telegram-chat-saver && \
 chmod +x setup.sh root_start_bot.sh start.sh setup.sh && \
 ./setup.sh
+```
+## ИЛИ
 
-  ```
+```bash
+git clone https://github.com/voterol/Telegram-chat-saver && \
+cd Telegram-chat-saver && \
+chmod +x setup.sh root_start_bot.sh start.sh setup.sh && \
+./setup.sh && \
+./root_start_bot.sh
+
+```
 1. **Клонируйте репозиторий:**
 
    ```bash
