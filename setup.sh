@@ -31,8 +31,6 @@ echo "Устанавливаем зависимости..."
 pip install --upgrade pip
 pip install -r requirements.txt
 
-python3 main.py
-
 timeout 3s python3 remain.py
 
 clear
