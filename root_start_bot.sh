@@ -23,6 +23,7 @@ echo "[Unit]
 Description=Start Telegram on Boot
 
 [Service]
+ExecStartPre=/bin/sleep 4
 ExecStart=/usr/bin/screen -dmS telegram_session $telegram_folder/start.sh
 Restart=always
 User=root
