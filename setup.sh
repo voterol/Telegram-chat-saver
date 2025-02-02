@@ -30,9 +30,9 @@ source myenv/bin/activate
 echo "Устанавливаем зависимости..."
 pip install --upgrade pip
 pip install -r requirements.txt
-echo "После запуска можете закрывать"
-timeout 10s python3 remain.py
+echo "После запуска введите свой API и можете входить в аккаунт"
+python3 remain.py
 
 clear
 echo "Все успешно установленно и созданно!"
-echo "Не забудте сменить API на ваш"
+
