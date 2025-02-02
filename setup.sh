@@ -16,7 +16,7 @@ echo "Обновляем систему и устанавливаем завис
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt install -y python3 python3-venv python3-pip
-sudo apt install coreutils
+sudo apt install coreutils -y
 
 # Создаём виртуальную среду
 echo "Создаём виртуальную среду..."
