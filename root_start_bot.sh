@@ -4,7 +4,7 @@ echo "[Unit]
 Description=Start Telegram on Boot
 
 [Service]
-ExecStart=/root/Telegram/start.sh
+ExecStart=/usr/bin/screen -dmS telegram_session /root/Telegram-chat-saver/start.sh
 Restart=always
 User=root
 
