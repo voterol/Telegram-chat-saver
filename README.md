@@ -14,7 +14,11 @@ Telegram chat saver bot / телеграмм бот сохраняющий со�
 ## 🛠️ Установка и настройка
 1. **Установка одной командой** Не забудте сменить API
   ```bash
- git clone https://github.com/voterol/Telegram-chat-saver && cd Telegram-chat-saver && chmod +x setup.sh && chmod +x root_start_bot.sh && ./start.sh
+git clone https://github.com/voterol/Telegram-chat-saver && \
+cd Telegram-chat-saver && \
+chmod +x setup.sh root_start_bot.sh start.sh && \
+./start.sh
+
   ```
 1. **Клонируйте репозиторий:**
 
