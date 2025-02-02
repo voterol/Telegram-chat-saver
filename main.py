@@ -30,10 +30,30 @@ def create_default_api_config():
         json.dump(default_api_config, f, ensure_ascii=False, indent=4)
     return default_api_config
 
-# Загрузка API_ID и API_HASH из файла
-api_config = load_api_config()
-API_ID = api_config.get('api_id')
-API_HASH = api_config.get('api_hash')
+# Функция для изменения API_ID и API_HASH, если они дефолтные
+def change_api_credentials_if_default():
+    api_config = load_api_config()
+    api_id = api_config.get('api_id')
+    api_hash = api_config.get('api_hash')
+    
+    if api_id == 12312312 and api_hash == "123456789012345678901234567890123":
+        print("Используются дефолтные значения для API ID и API Hash.")
+        api_id = input(f"Введите новый API ID (текущий: {api_id}): ") or api_id
+        api_hash = input(f"Введите новый API Hash (текущий: {api_hash}): ") or api_hash
+        
+        # Обновляем файл с новыми значениями
+        new_config = {
+            "api_id": api_id,
+            "api_hash": api_hash
+        }
+        with open(API_CONFIG_FILE, 'w', encoding='utf-8') as f:
+            json.dump(new_config, f, ensure_ascii=False, indent=4)
+        
+        print("API ID и API Hash обновлены.")
+    return api_id, api_hash
+
+# Проверка и смена API_ID и API_HASH, если они дефолтные
+API_ID, API_HASH = change_api_credentials_if_default()
 
 ARCHIVE_BOT_ID = 777000  # ID бота-архиватора
 
