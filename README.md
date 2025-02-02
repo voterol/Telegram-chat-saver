@@ -91,7 +91,7 @@ your-repo/
 
 - [Telethon](https://github.com/LonamiWebs/Telethon) — асинхронная библиотека для работы с Telegram API.
 - [python-dotenv](https://github.com/theskumar/python-dotenv) — для удобной работы с переменными окружения.
-- [requets](https://github.com) - для запросов
+- [requets](https://github.com/psf/requests) - для запросов
 Установите зависимости через:
 
 ```bash
