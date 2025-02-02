@@ -15,9 +15,8 @@ echo "
 echo "Обновляем систему и устанавливаем зависимости..."
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install language-pack-ru
-sudo update-locale LANG=ru_RU.UTF-8
 sudo apt install -y python3 python3-venv python3-pip
+sudo apt install coreutils
 
 # Создаём виртуальную среду
 echo "Создаём виртуальную среду..."
@@ -32,10 +31,9 @@ echo "Устанавливаем зависимости..."
 pip install --upgrade pip
 pip install -r requirements.txt
 
-
 python3 main.py
 
-sleep 3
-exit 0
+timeout 3s python3 remain.py
+
 clear
 echo "Все успешно установленно и созданно!"
