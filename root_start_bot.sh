@@ -1,21 +1,40 @@
 #!/bin/bash
-# Create the systemd service file for automatic startup
+
+# Функция для запроса пути к папке, пока она не будет найдена
+get_folder() {
+    while true; do
+        echo "Введите путь к директории вашего Telegram-бота (например, /root/Telegram-chat-saver):"
+        read telegram_folder
+
+        # Проверка существования папки
+        if [ -d "$telegram_folder" ]; then
+            break
+        else
+            echo "Папка $telegram_folder не найдена. Попробуйте снова."
+        fi
+    done
+}
+
+# Вызов функции для получения правильного пути
+get_folder
+
+# Создание файла systemd для автозапуска
 echo "[Unit]
 Description=Start Telegram on Boot
 
 [Service]
-ExecStart=/usr/bin/screen -dmS telegram_session /root/Telegram-chat-saver/start.sh
+ExecStart=/usr/bin/screen -dmS telegram_session $telegram_folder/start.sh
 Restart=always
 User=root
 
 [Install]
 WantedBy=multi-user.target" > /etc/systemd/system/telegram-start.service
 
-# Reload systemd to register the new service
+# Перезагрузка systemd для регистрации нового сервиса
 systemctl daemon-reload
 
-# Enable the service to start on boot
+# Включение автозапуска сервиса
 systemctl enable telegram-start.service
 
-# Start the service immediately (optional)
+# Запуск сервиса немедленно (по желанию)
 systemctl start telegram-start.service
