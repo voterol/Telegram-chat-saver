@@ -16,8 +16,8 @@ Telegram chat saver bot / телеграмм бот сохраняющий со�
   ```bash
 git clone https://github.com/voterol/Telegram-chat-saver && \
 cd Telegram-chat-saver && \
-chmod +x setup.sh root_start_bot.sh start.sh && \
-./start.sh
+chmod +x setup.sh root_start_bot.sh start.sh setup.sh && \
+./setup.sh
 
   ```
 1. **Клонируйте репозиторий:**
