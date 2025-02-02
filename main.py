@@ -74,14 +74,30 @@ config = load_config()
 async def start_client():
     await client.start()
     if not await client.is_user_authorized():
-        phone_number = input("Введите ваш номер телефона: ")
+        phone_number = os.getenv('TELEGRAM_PHONE')
+        if not phone_number:
+            try:
+                phone_number = input("Введите ваш номер телефона: ")
+            except KeyboardInterrupt:
+                print("\nПроцесс был прерван пользователем.")
+                sys.exit()
+        
         await client.send_code_request(phone_number)
-        code = input("Введите код подтверждения: ")
+        try:
+            code = input("Введите код подтверждения: ")
+        except KeyboardInterrupt:
+            print("\nПроцесс был прерван пользователем.")
+            sys.exit()
+
         try:
             await client.sign_in(phone_number, code)
         except Exception as e:
             print(f"Ошибка при авторизации: {e}")
-            password = input("Введите пароль для двухфакторной аутентификации: ")
+            try:
+                password = input("Введите пароль для двухфакторной аутентификации: ")
+            except KeyboardInterrupt:
+                print("\nПроцесс был прерван пользователем.")
+                sys.exit()
             await client.sign_in(password=password)
 
 @client.on(events.NewMessage)
@@ -229,4 +245,7 @@ async def main():
     await client.run_until_disconnected()
 
 if __name__ == "__main__":
-    client.loop.run_until_complete(main())
+    try:
+        client.loop.run_until_complete(main())
+    except KeyboardInterrupt:
+        print("\nБот остановлен пользователем.")
