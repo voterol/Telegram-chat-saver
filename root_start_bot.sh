@@ -24,7 +24,7 @@ Description=Start Telegram on Boot
 
 [Service]
 ExecStartPre=/bin/sleep 4
-ExecStart=/usr/bin/screen -dmS telegram_session $telegram_folder/start.sh
+ExecStart=$telegram_folder/startup.sh
 Restart=always
 User=root
 
