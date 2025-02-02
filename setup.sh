@@ -15,6 +15,8 @@ echo "
 echo "Обновляем систему и устанавливаем зависимости..."
 sudo apt update -y
 sudo apt upgrade -y
+sudo apt install language-pack-ru
+sudo update-locale LANG=ru_RU.UTF-8
 sudo apt install -y python3 python3-venv python3-pip
 
 # Создаём виртуальную среду
@@ -29,6 +31,7 @@ source myenv/bin/activate
 echo "Устанавливаем зависимости..."
 pip install --upgrade pip
 pip install -r requirements.txt
+
 
 python3 main.py
 
